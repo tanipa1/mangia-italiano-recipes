@@ -48,6 +48,7 @@ const Login = () => {
                     </Form.Text>
                 </Form>
             </Container>
+            <br /><br /><hr />
         </div>
     );
 };

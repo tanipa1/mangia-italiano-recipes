@@ -40,7 +40,9 @@ const Register = () => {
                         We'll never share your email with anyone else.
                     </Form.Text>
                 </Form>
+                
             </Container>
+            <br /><br /><hr />
         </div>
     );
 };

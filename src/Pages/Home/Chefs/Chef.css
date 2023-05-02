@@ -1,0 +1,18 @@
+.chef-card{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.each-card{
+    border: 2px solid #85b72c;
+    background-color: #f7f4ee;
+}
+.each-card:hover{
+    background-color: antiquewhite;
+}
+
+@media only screen and (max-width: 600px){
+    .chef-card{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}

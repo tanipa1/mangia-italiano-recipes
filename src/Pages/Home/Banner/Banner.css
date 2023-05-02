@@ -4,3 +4,6 @@
 .banner-card{
     border: 2px solid #85b72c;
 }
+.banner-card:hover{
+    background-color: #85b72c;
+}
