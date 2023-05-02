@@ -10,11 +10,11 @@ const Banner = () => {
     return (
         <Container className='px-5 mt-5 banner'>
             <div className='banner d-md-flex gap-5 align-items-center'>
-                <div className='me-5'>
+                <div className='me-md-5'>
                     <h2>Experience the true taste of <span className='italy'>Italy</span></h2>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex dignissimos rerum, beatae nobis magni minus libero esse omnis molestias quasi ullam velit adipisci rem quia quo laboriosam saepe harum excepturi.</p>
                 </div>
-                <div className='ms-5'>
+                <div className='ms-md-5'>
                     <Row xs={2} md={2} className="g-4">
                             <Col>
                                 <Card className='banner-card'>
