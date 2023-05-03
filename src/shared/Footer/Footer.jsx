@@ -55,7 +55,7 @@ const Footer = () => {
                                     <label htmlFor="messageInput" className="form-label text-muted">Message</label>
                                     <textarea className="form-control" id="messageInput" rows="3"></textarea>
                                 </div>
-                                <button type="submit" className="btn btn-outline-light">Submit</button>
+                                <button type="submit" className="login btn btn-outline-light">Submit</button>
                             </form>
                         </Col>
                     </Row>
