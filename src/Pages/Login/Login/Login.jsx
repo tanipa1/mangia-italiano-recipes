@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Button, Container, Form } from 'react-bootstrap';
+import { Alert, Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 
@@ -90,9 +90,11 @@ const Login = () => {
                     <Form.Text className="text-success">
 
                     </Form.Text><br />
-                    <Form.Text className="text-danger">
+                    {
+                    error? <Alert variant='danger'>
                         {error}
-                    </Form.Text>
+                    </Alert>: <></>
+                    }
                 </Form>
             </Container>
             <br /><br /><hr />

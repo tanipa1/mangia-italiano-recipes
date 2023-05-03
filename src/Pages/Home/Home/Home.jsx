@@ -5,6 +5,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import Chefs from '../Chefs/Chefs';
 import Newsletter from '../Newsletter/Newsletter';
+import FrequentQuestion from '../FrequentQuestion/FrequentQuestion';
 
 const Home = () => {
     const chefs = useLoaderData([]);
@@ -36,9 +37,10 @@ const Home = () => {
                     <Newsletter></Newsletter>
                 </Container>
             </div>
-            {/* Social Link */}
-            <Container>
-                
+            {/* Frequent Question */}
+            <Container className='mb-5 px-5'>
+                <h2 className='text-center mb-4'>Frequently Asked Questions</h2>
+                <FrequentQuestion></FrequentQuestion>
             </Container>
         </div>
     );
