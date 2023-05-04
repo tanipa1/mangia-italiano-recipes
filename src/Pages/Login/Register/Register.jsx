@@ -4,18 +4,18 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 
 const Register = () => {
-    const {createUser} = useContext(AuthContext);
+    const {createUser, updateUserProfile} = useContext(AuthContext);
     const [error, setError] = useState('');
 
     const handleRegister = event =>{
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
-        const photoURL = form.photo.value;
+        const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
 
-        console.log(name, photoURL, email, password);
+        console.log(name, photo, email, password);
         if(password.length < 6){
             setError('Password must be Atleast 6 charaters')
         }
@@ -28,6 +28,13 @@ const Register = () => {
         .catch(error =>{
             setError(error.message);
         })
+
+        updateUserProfile(name, photo)
+        .then(() => {
+        })
+        .catch(error => {
+          setError(error.message);
+        });
     }
 
     return (

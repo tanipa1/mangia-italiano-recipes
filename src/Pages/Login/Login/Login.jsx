@@ -32,12 +32,13 @@ const Login = () => {
                 setError(error.message);
             })
     }
-
+    
     const signInGoogle = () => {
         googleSignIn()
             .then(result => {
                 const googleUser = result.user;
                 console.log(googleUser);
+                setError('')
             })
             .catch(error => {
                 setError(error.message);
@@ -49,6 +50,7 @@ const Login = () => {
         .then(result => {
             const gitHubUser = result.user;
             console.log(gitHubUser);
+            
         })
         .catch(error => {
             setError(error.message);

@@ -27,7 +27,7 @@ const Recipes = () => {
     useEffect(() => {
         const fetchRecipes = async () => {
             try {
-                const response = await fetch('http://localhost:5000/recipes');
+                const response = await fetch('https://mangia-italiano-server-tanipa1.vercel.app/recipes');
                 const data = await response.json();
                 console.log(data);
                 const filteredRecipes = data.filter((recipe) => recipe.chef_id == id);
