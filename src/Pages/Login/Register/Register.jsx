@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
-import { Button, Container, Form } from 'react-bootstrap';
+import React, { useContext, useState } from 'react';
+import { Alert, Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 
 const Register = () => {
     const {createUser} = useContext(AuthContext);
+    const [error, setError] = useState('');
 
     const handleRegister = event =>{
         event.preventDefault();
@@ -15,6 +16,9 @@ const Register = () => {
         const password = form.password.value;
 
         console.log(name, photoURL, email, password);
+        if(password.length < 6){
+            setError('Password must be Atleast 6 charaters')
+        }
 
         createUser(email, password)
         .then(result =>{
@@ -22,7 +26,7 @@ const Register = () => {
             console.log(createdUser);
         })
         .catch(error =>{
-            console.log(error);
+            setError(error.message);
         })
     }
 
@@ -57,11 +61,13 @@ const Register = () => {
                         Already Have An Account ? <Link className='text-primary' to="/login">Login</Link>
                     </Form.Text><br /><br />
                     <Form.Text className="text-success">
-                        We'll never share your email with anyone else.
+                        
                     </Form.Text><br />
-                    <Form.Text className="text-danger">
-                        We'll never share your email with anyone else.
-                    </Form.Text>
+                    {
+                    error? <Alert variant='danger'>
+                        {error}
+                    </Alert>: <></>
+                    }
                 </Form>
                 
             </Container>

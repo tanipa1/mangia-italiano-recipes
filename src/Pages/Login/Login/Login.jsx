@@ -1,10 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { Alert, Button, Container, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 
 const Login = () => {
     const { signIn, googleSignIn, gitHubSignIn } = useContext(AuthContext)
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/'
+
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(null);
 
@@ -22,6 +26,7 @@ const Login = () => {
                 console.log(loggedUser);
                 setSuccess(loggedUser);
                 form.reset();
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 setError(error.message);
@@ -57,12 +62,12 @@ const Login = () => {
                 <Form onSubmit={handleLogin}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" name='email' placeholder="Enter email" />
+                        <Form.Control type="email" name='email' placeholder="Enter email" required />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" name='password' placeholder="Password" />
+                        <Form.Control type="password" name='password' placeholder="Password" required />
                     </Form.Group>
                     <Form.Group>
                         <Button className='w-100 py-1 login mt-4' variant="secondary" size="lg" type="submit">
