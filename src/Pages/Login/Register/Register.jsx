@@ -3,6 +3,8 @@ import { Alert, Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 
+
+
 const Register = () => {
     const {createUser, updateUserProfile} = useContext(AuthContext);
     const [error, setError] = useState('');
@@ -48,7 +50,7 @@ const Register = () => {
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Photo URL</Form.Label>
-                        <Form.Control type="text" name='photo' placeholder="Enter Photo URL" />
+                        <Form.Control type="url" name='photo' placeholder="Enter Photo URL" />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
