@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import './Header.css';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext)
+
+    const handleSignOut = () => {
+        logOut()
+            .then(result => { })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
     return (
         <Navbar bg="white" expand="lg">
             <Container className='mx-auto px-5'>
@@ -21,9 +32,17 @@ const Header = () => {
                         <Link className='text-decoration-none text-black me-4' to="/blog">Blog</Link>
                     </Nav>
                     <Nav className="">
-                        <Link className='text-decoration-none text-black me-4' to="/login">
-                        <Button className='login'>Login</Button>
-                        </Link>
+                        {
+                            user && <img width={40}  data-bs-toggle="tooltip" data-bs-placement="bottom" title={user.displayName} class="rounded-circle me-2" src={user.photoURL} alt=""/>
+                        }
+                        {!user ?
+                            <Link className='text-decoration-none text-black me-4' to="/login">
+                                <Button className='login'>Login</Button>
+                            </Link> :
+                            <>
+                                <Button className='login' onClick={handleSignOut}>Logout</Button>
+                            </>
+                        }
                     </Nav>
                 </Navbar.Collapse>
             </Container>
