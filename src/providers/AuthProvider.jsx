@@ -40,6 +40,10 @@ const AuthProvider = ({children}) => {
         }
     },[])
 
+    const updateProfile = () =>{
+        
+    }
+
     const authInfo = {
         user,
         logOut,

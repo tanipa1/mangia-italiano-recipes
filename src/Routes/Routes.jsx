@@ -8,6 +8,7 @@ import RecipesPage from "../Layout/RecipesPage";
 import Chefs from "../Pages/Home/Chefs/Chefs";
 import Recipes from "../Pages/Recipes/Recipes";
 import PrivateRoute from "./PrivateRoute";
+import NotFound from "../Pages/NotFound/NotFound";
 
 const router = createBrowserRouter([
     {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog></Blog>
+            },
+            {
+                path: '*',
+                element: <NotFound></NotFound>
             },
             {
                 path: '/login',
