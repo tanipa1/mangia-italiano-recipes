@@ -1,5 +1,5 @@
 # Live Link of the project:
-https://beamish-frangollo-28e260.netlify.app/
+https://mangia-italiano-recipes.web.app/
 
 ## Features of the Project:
 1. In the Home Page You Will see Information of some famous chef of Italy.
